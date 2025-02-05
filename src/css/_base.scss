@@ -1,0 +1,106 @@
+/*Variabler och mixins, annat som jag kan behöva importera: färgkoder i variabler, styling på texter, textstorlek etc.*/
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+body {
+    font-family: 'Roboto', Helvetica, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFDEF;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0 auto;
+    overflow-x: hidden;
+}
+
+main {
+    flex: 1;
+    padding: 2%;
+    width: 100%;
+    max-width: 500px;
+}
+
+p {
+    line-height: 1.7em;
+}
+
+footer p {
+    text-align: center;
+    color: #F1F1F1;
+}
+
+footer {
+    background-color: brown;
+    width: 100%;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    width: 500px;
+}
+
+.menu-container {
+    background-color: brown;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.menu ul {
+    list-style-type: none;
+    display: flex;
+    gap: 50px;
+}
+
+nav {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+.menu nav ul li a {
+    text-decoration: none;
+    color: #F1F1F1;
+}
+
+.menu li {
+    font-weight: bold;
+}
+
+header {
+    background-color: #C50000;
+    width: 100%;
+    color: #F1F1F1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 15px;
+}
+
+h1 {
+    color: #F1F1F1;
+    font-size: 1.4em;
+}
+
+header img {
+    margin-bottom: -5px;
+}
+
+.menu nav li.selected-menu a, .menu nav li.menu-option a:hover {
+    border-bottom: 2px solid #F1F1F1;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.intro {
+    margin-top: 50px;
+}
+
+
+
+
+
+

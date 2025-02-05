@@ -5,23 +5,28 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Frontend-baserad webbutveckling</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/main.scss">
     <script src="js/main.js" type="module"></script>
 </head>
 
 <body>
     <header>
-        <h1>Moment 3</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">HEM</a></li>
-                <li><a href="sass.html">SASS</a></li>
-            </ul>
-        </nav>
+        <img src="./images/matterhorn.webp?width=200" alt="Matterhorn">
     </header>
+    <div class="menu-container">
+        <div class="menu">
+            <h1>Moment 3</h1>
+            <nav>
+                <ul>
+                    <li class="selected-menu"><a href="index.html">HEM</a></li>
+                    <li class="menu-option"><a href="sass.html">SASS</a></li>
+                </ul>
+            </nav>
+        </div>
+    </div>
     <main>
-        <p>Välkommen till min webbplats för moment 3 i Frontend-baserad webbutveckling!
-            Under "SASS" kan du läsa lite om sevärdheter i Bern där jag bor samt 
+        <p class="intro">Välkommen till min webbplats för moment 3 i Frontend-baserad webbutveckling!
+            Under "SASS" kan du läsa lite om sevärdheter i Bern där jag bor samt
             utvärdering av mitt arbete med SASS.
         </p>
     </main>
