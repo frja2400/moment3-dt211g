@@ -50,7 +50,7 @@ footer {
 .menu ul {
     list-style-type: none;
     display: flex;
-    gap: 50px;
+    gap: 40px;
 }
 
 nav {
@@ -65,7 +65,30 @@ nav {
 
 .menu li {
     font-weight: bold;
+    letter-spacing: 1px;
 }
+
+.menu-container .menu .menu-option {
+    position: relative;
+}
+
+.menu-container .menu .menu-option .sub-menu {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    background-color: brown;
+    padding: 30px 10px 20px 10px;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+}
+
+.menu-container .menu .menu-option:hover .sub-menu {
+    display: flex;
+}
+
 
 header {
     background-color: #C50000;
@@ -80,27 +103,155 @@ header {
 h1 {
     color: #F1F1F1;
     font-size: 1.4em;
+    letter-spacing: 1px;
 }
 
 header img {
     margin-bottom: -5px;
 }
 
-.menu nav li.selected-menu a, .menu nav li.menu-option a:hover {
+.menu nav li.selected-menu a,
+.menu nav li.menu-option a:hover {
     border-bottom: 2px solid #F1F1F1;
+}
+
+h3 {
+    text-align: center;
+    margin-top: 40px;
 }
 
 h2 {
     text-align: center;
-    margin-top: 50px;
+    background-color: rgb(165, 42, 42, 0.3);
 }
 
 .intro {
     margin-top: 50px;
 }
 
+#utvardering {
+    margin-top: 50px;
+}
 
+.arrow {
+    margin-left: 5px;
+}
 
+.firstImage {
+    margin-bottom: 20px;
+}
 
+.menu-btn {
+    display: none;
+}
 
+@media screen and (max-width: 655px) {
 
+    nav {
+        background-color: brown;
+        box-shadow: 0 0px 10px rgba(0, 0, 0, 0.71);
+        position: absolute;
+        right: 0;
+        top: 0;
+        height: 100vh;
+        width: 150px;
+        display: none;
+    }
+
+    /*Menyknappar vid både öppen och stängd meny.*/
+    .menu-btn {
+        display: flex;
+        align-items: center;
+        padding: 8px 15px;
+        cursor: pointer;
+        margin-bottom: 20px;
+        margin-top: 15px;
+        margin-left: 30px;
+        background: none;
+        border: none;
+    }
+
+    /*Design av hamburgermeny och kryss.*/
+    .bars {
+        display: block;
+        width: 28px;
+        height: 3px;
+        background-color: white;
+        margin: 5px 0;
+    }
+
+    .cross1 {
+        width: 25px;
+        transform: rotate(45deg);
+        position: relative;
+        top: 5px;
+    }
+
+    .cross2 {
+        width: 25px;
+        transform: rotate(135deg);
+        position: relative;
+        top: -3px;
+    }
+
+    .menu-icon {
+        margin-left: 20px;
+    }
+
+    h1 {
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    .menu ul {
+        display: block;
+    }
+
+    .menu ul li {
+        text-align: center;
+        margin-bottom: 40px;
+        margin-top: 40px;
+        margin-right: 35px;
+    }
+
+    .menu nav li.selected-menu a {
+        border-bottom: none;
+    }
+
+    .menu nav li.selected-menu a:hover {
+        border-bottom: 2px solid #F1F1F1;
+    }
+
+    .menu-container, footer {
+        height: 50px;
+    }
+
+    .menu-container .menu .menu-option .sub-menu,
+    .menu-container .menu .menu-option:hover .sub-menu {
+        display: block;
+        background-color: transparent;
+        padding: 0;
+        margin-top: -40px;
+    }
+
+    .menu-container .menu .menu-option .sub-menu li {
+        margin-left: 30px;
+    }
+
+    .menu-option.sass > a {
+        display: none;
+    }
+
+    main, .menu {
+        width: 90%;
+    }
+
+    .firstImage, .secondImage {
+        width: 100%;
+    }
+
+    h3 {
+        margin-top: 30px;
+    }
+
+}
