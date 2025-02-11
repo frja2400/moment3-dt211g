@@ -1,5 +1,3 @@
-/*Variabler och mixins, annat som jag kan behöva importera: färgkoder i variabler, styling på texter, textstorlek etc.*/
-
 /*Variabler för färger*/
 $primary-color: #FFFDEF;
 $secondary-color: #C50000;
@@ -7,281 +5,36 @@ $tertiary-color: #a52a2a;
 $text-color: #F1F1F1;
 $primary-color-dm: #c44545;
 $box-shadow: rgba(0, 0, 0, 0.71);
-$h2-border-color: rgb(165, 42, 42, 0.3);
+
+/*Color funtions med lighten och darken*/
+$lighten-color: lighten($tertiary-color, 40%);
+$darken-color: darken($tertiary-color, 30%);
 
 /*Variabler för typsnitt och storlekar*/
 $base-font: 'Roboto', Helvetica, sans-serif;
-$base-line-height: 1.7 em;
+$base-line-height: 1.7em;
 $h1-font-size: 1.4em;
 $letter-spacing: 1px;
 $sub-menu-font-size: 0.8em;
 
+/*Platshållare*/
+%full-width {
+    width: 100%;
+}
+
+/*Mixins med if/else-sats*/
+@mixin flex-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@mixin respond-to($breakpoint) {
+    @if $breakpoint == small {
+        @media (max-width: 655px) {@content;} //Platsmarkör för innehåll
+    } @else if $breakpoint == dark-mode {
+        @media (prefers-color-scheme: dark) {@content;}
+    }
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
-body {
-    font-family: $base-font;
-    display: flex;
-    flex-direction: column;
-    background-color: $primary-color;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0 auto;
-    overflow-x: hidden;
-}
-
-main {
-    flex: 1;
-    padding: 2%;
-    width: 100%;
-    max-width: 500px;
-}
-
-p {
-    line-height: $base-line-height;
-}
-
-h1 {
-    color: $text-color;
-    font-size: $h1-font-size;
-    letter-spacing: $letter-spacing;
-}
-
-h3 {
-    text-align: center;
-    margin-top: 40px;
-}
-
-h2 {
-    text-align: center;
-    background-color: $h2-border-color;
-}
-
-footer {
-    background-color: $tertiary-color;
-    width: 100%;
-}
-
-footer p {
-    text-align: center;
-    color: $text-color;
-}
-
-header {
-    background-color: $secondary-color;
-    width: 100%;
-    color: $text-color;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 15px;
-}
-
-header img {
-    margin-bottom: -5px;
-}
-
-.menu {
-    display: flex;
-    justify-content: space-between;
-    width: 500px;
-}
-
-.menu-container {
-    background-color: $tertiary-color;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-}
-
-.menu ul {
-    list-style-type: none;
-    display: flex;
-    gap: 40px;
-}
-
-nav {
-    margin-top: auto;
-    margin-bottom: auto;
-}
-
-.menu nav ul li a {
-    text-decoration: none;
-    color: $text-color;
-}
-
-.menu li {
-    font-weight: bold;
-    letter-spacing: $letter-spacing;
-}
-
-.menu-container .menu .menu-option {
-    position: relative;
-}
-
-.menu-container .menu .menu-option .sub-menu {
-    display: none;
-    flex-direction: column;
-    align-items: center;
-    position: absolute;
-    background-color: $tertiary-color;
-    padding: 30px 10px 20px 10px;
-    top: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: $sub-menu-font-size;
-}
-
-.menu-container .menu .menu-option:hover .sub-menu {
-    display: flex;
-}
-
-.menu nav li.selected-menu a,
-.menu nav li.menu-option a:hover {
-    border-bottom: 2px solid $text-color;
-}
-
-.menu-btn {
-    display: none;
-}
-
-.intro {
-    margin-top: 50px;
-}
-
-#utvardering {
-    margin-top: 50px;
-}
-
-.arrow {
-    margin-left: 5px;
-}
-
-.firstImage {
-    margin-bottom: 20px;
-}
-
-@media screen and (max-width: 655px) {
-
-    nav {
-        background-color: $tertiary-color;
-        box-shadow: 0 0px 10px $box-shadow;
-        position: absolute;
-        right: 0;
-        top: 0;
-        height: 100vh;
-        width: 150px;
-        display: none;
-    }
-
-    /*Menyknappar vid både öppen och stängd meny.*/
-    .menu-btn {
-        display: flex;
-        align-items: center;
-        padding: 8px 15px;
-        cursor: pointer;
-        margin-bottom: 20px;
-        margin-top: 15px;
-        margin-left: 30px;
-        background: none;
-        border: none;
-    }
-
-    /*Design av hamburgermeny och kryss.*/
-    .bars {
-        display: block;
-        width: 28px;
-        height: 3px;
-        background-color: $text-color;
-        margin: 5px 0;
-    }
-
-    .cross1 {
-        width: 25px;
-        transform: rotate(45deg);
-        position: relative;
-        top: 5px;
-    }
-
-    .cross2 {
-        width: 25px;
-        transform: rotate(135deg);
-        position: relative;
-        top: -3px;
-    }
-
-    .menu-icon {
-        margin-left: 20px;
-    }
-
-    .menu ul {
-        display: block;
-    }
-
-    .menu ul li {
-        text-align: center;
-        margin-bottom: 40px;
-        margin-top: 40px;
-        margin-right: 35px;
-    }
-
-    .menu nav li.selected-menu a {
-        border-bottom: none;
-    }
-
-    .menu nav li.selected-menu a:hover {
-        border-bottom: 2px solid $text-color;
-    }
-
-    .menu-container, footer {
-        height: 50px;
-    }
-
-    .menu-container .menu .menu-option .sub-menu,
-    .menu-container .menu .menu-option:hover .sub-menu {
-        display: block;
-        background-color: transparent;
-        padding: 0;
-        margin-top: -40px;
-    }
-
-    .menu-container .menu .menu-option .sub-menu li {
-        margin-left: 30px;
-    }
-
-    .menu-option.sass > a {
-        display: none;
-    }
-
-    main, .menu {
-        width: 90%;
-    }
-
-    .firstImage, .secondImage {
-        width: 100%;
-    }
-
-    h1 {
-        margin-top: auto;
-        margin-bottom: auto;
-    }
-
-    h3 {
-        margin-top: 30px;
-    }
-
-}
-
-@media (prefers-color-scheme: dark) {
-    main p, h2, h3 {
-        color: $primary-color;
-    }
-
-    body {
-        background-color: $primary-color-dm;
-    }
-
-    h2 {
-        background-color: $tertiary-color;
-    }
-}
