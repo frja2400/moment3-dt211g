@@ -33,7 +33,7 @@ window.addEventListener("resize", function() {
     }
 });
 
-// Lägg till händelselyssnare för alla länkar i menyn
+//Händelselyssnare för alla länkar i menyn för att se till att den försvinner vid klick.
 document.querySelectorAll('#nav-menu a').forEach(link => {
     link.addEventListener('click', () => {
         // Kontrollera om skärmbredden är mindre än eller lika med 655px
